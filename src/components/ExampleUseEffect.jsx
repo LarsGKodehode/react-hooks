@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 /**
- * Example component for showcasing useEffect
+ * Example component for showcasing useEffect when fetching data
  */
 const ExampleUseEffect = () => {
   const [ data, setData] = useState(null);
@@ -19,7 +19,8 @@ const ExampleUseEffect = () => {
   
   }, []);
 
-
+  
+  // This handles changes in text input
   function handleChange(event) {
     const value = event.target.value;
     setInputData(() => value)
