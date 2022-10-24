@@ -63,7 +63,7 @@ const ExampleUseEffect = () => {
       </section>
       
       <ul>
-        {catFactJSXList}
+        {React.Children.toArray(catFactJSXList)}
       </ul>
 
       {/* <ComparisonExample /> */}
