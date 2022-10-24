@@ -46,14 +46,15 @@ const ExampleUseEffect = () => {
   };
 
 
-  // Here we take the information from the catFactsList and create a new list
-  // of react components
+  // Here we take the information from the catFactsList
+  // and creating a new list of react components
   const catFactJSXList = catFactsList.map((catInfo) => {
     return(
       <CatFactCard {...catInfo} />
     );
   });
 
+  
   return(
     <>
       <h1>useEffect example</h1>
@@ -63,6 +64,7 @@ const ExampleUseEffect = () => {
       </section>
       
       <ul>
+        {/* Here we are using the inbuilt method from React to render a list of JSX/Components */}
         {React.Children.toArray(catFactJSXList)}
       </ul>
 
