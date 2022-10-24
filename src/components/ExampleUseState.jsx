@@ -7,7 +7,7 @@ import { useState } from "react";
  * Example component for showcasing useState
  */
 const ExampleUseState = () => {
-  // Here we are storing the various state
+  // Here we are storing the various states
   const [ counter, setCounter ] = useState(0);
   const [ isLoading, setIsLoading ] = useState(true);
   const [ data, setData ] = useState("Hello");
@@ -35,7 +35,7 @@ const ExampleUseState = () => {
   };
   
 
-  // DO NOT DO! This does note work. This is due to how React keeps track of the state of the application
+  // DO NOT DO! This does not work. This is due to how React keeps track of the state of the application
   let myValue = 0;
   function incrementValue() {
     myValue++;
@@ -69,7 +69,7 @@ const ExampleUseState = () => {
     </section>
 
     <section>
-      {/* This does not work, due to how React keeps track of the application state */}
+      {/* The function we are calling here does not work, due to how React keeps track of the application state */}
       <button onClick={() => incrementValue()}>Does not work</button>
       <h1>{myValue}</h1>
     </section>
