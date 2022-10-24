@@ -35,7 +35,7 @@ const ExampleUseState = () => {
   };
   
 
-  // DO NOT DO! This does not work. This is due to how React keeps track of the state of the application
+  // DO NOT DO! This does not work.
   let myValue = 0;
   function incrementValue() {
     myValue++;
