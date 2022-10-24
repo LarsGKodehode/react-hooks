@@ -1,5 +1,6 @@
 // Libraries
 // Here we are importing functionality from React that is going to be used in this component
+// - useState is the React hook for storing the state of our component
 import { useState } from "react";
 
 
@@ -49,10 +50,11 @@ const ExampleUseState = () => {
     <section>
       <button onClick={() => increment()}>Increment counter</button>
       <h1>{counter}</h1>
+      <hr />
     </section>
 
     <section>
-      <button onClick={() => toggleLoading()}>Toogle loading state</button>
+      <button onClick={() => toggleLoading()}>Toggle loading state</button>
       {
         // This is common way for displaying a UX hint to the user that the content is still loading
         // You can exhange the <h1> element with whatever custom component you choose
@@ -60,18 +62,22 @@ const ExampleUseState = () => {
         ? <h1>Loading..</h1>
         : <h1>Loading is done</h1>
       }
+      <hr />
     </section>
 
     <section>
       {/* Here we are using the state stored in data as the driver for the content of the input form, also known as a single source of truth arcitechrture */}
       <input type="text" value={data} onChange={(event) => {handleInputChange(event)}}></input>
       <h1>{data}</h1>
+      <hr />
     </section>
 
     <section>
       {/* The function we are calling here does not work, due to how React keeps track of the application state */}
+      <p>Open the inspector and see that the value acutally changes but React does not rerender the document</p>
       <button onClick={() => incrementValue()}>Does not work</button>
       <h1>{myValue}</h1>
+      <hr />
     </section>
     </>
   )
