@@ -29,7 +29,6 @@ const ExampleUseState = () => {
 
   // This is a function for storing the data from the input text element
   function handleInputChange(event) {
-    console.log(event);
     setData(() => {
       return event.target.value;
     });
