@@ -20,6 +20,7 @@ const ExampleUseEffect = () => {
     fetch("https://catfact.ninja/breeds")
       .then((response) => response.json())
       .then((data) => {
+        // Here we are storing a list of catfacts into a variable
         setCatFactsList(data.data);
       });
   }, []);
@@ -41,7 +42,7 @@ const ExampleUseEffect = () => {
 
   return(
     <>
-      <h1>useEffect example</h1>
+      <h1>useEffect with dynamically creating a list of components from raw data</h1>
 
       <section>
         <input type="text" value={inputData} onChange={(event) => handleChange(event)}/>
