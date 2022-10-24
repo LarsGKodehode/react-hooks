@@ -1,14 +1,17 @@
+// Libraries
+// Here we are importing functionality from React that is going to be used in this component
 import { useState } from "react";
+
 
 /**
  * Example component for showcasing useState
- * @return 
  */
 const ExampleUseState = () => {
   // Here we are storing the various state
   const [ counter, setCounter ] = useState(0);
   const [ isLoading, setIsLoading ] = useState(true);
   const [ data, setData ] = useState("Hello");
+
 
   // This is a simple function for incrementing the value stored in counter
   function increment() {
@@ -24,8 +27,8 @@ const ExampleUseState = () => {
     });
   };
 
-  // Here we use 
-  function updateData(event) {
+  // This is a function for storing the data from the input text element
+  function handleInputChange(event) {
     console.log(event);
     setData(() => {
       return event.target.value;
@@ -44,26 +47,36 @@ const ExampleUseState = () => {
   // Returned JSX
   return(
     <>
-      <button onClick={() => increment()}>Increase</button>
+    <section>
+      <button onClick={() => increment()}>Increment counter</button>
       <h1>{counter}</h1>
+    </section>
 
-      <button onClick={() => toggleLoading()}>Finished Loading</button>
+    <section>
+      <button onClick={() => toggleLoading()}>Toogle loading state</button>
       {
-        // This is common practise for displaying a hint to the user that the content is still loading
+        // This is common way for displaying a UX hint to the user that the content is still loading
+        // You can exhange the <h1> element with whatever custom component you choose
         isLoading
         ? <h1>Loading..</h1>
         : <h1>Loading is done</h1>
       }
+    </section>
 
-      {/* Here we are using the state stored in data as the driver for the content of the input form, also known as a single source of truth design pattern */}
-      <input type="text" value={data} onChange={(event) => {updateData(event)}}></input>
+    <section>
+      {/* Here we are using the state stored in data as the driver for the content of the input form, also known as a single source of truth arcitechrture */}
+      <input type="text" value={data} onChange={(event) => {handleInputChange(event)}}></input>
       <h1>{data}</h1>
+    </section>
 
-      {/* The button here does not work */}
+    <section>
+      {/* This does not work, due to how React keeps track of the application state */}
       <button onClick={() => incrementValue()}>Does not work</button>
       <h1>{myValue}</h1>
+    </section>
     </>
   )
 };
 
+// We are following a one component per file convention, so we can use default export and import
 export default ExampleUseState;
