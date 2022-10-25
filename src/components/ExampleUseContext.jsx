@@ -11,22 +11,39 @@ const FormContext = createContext("");
 
 
 const ExampleUseContext = () => {
-  const [ formData, setFormData ] = useState("Lars Gunnar");
+  const [ formData, setFormData ] = useState({
+    inputValue: "Lars Gunnar",
+    updateValue: updateValue,
+  });
 
+
+  function updateValue(value) {
+    console.log(value)
+    setFormData((oldFormData) => {
+      return {
+        ...oldFormData,
+        inputValue: value,
+      };
+    });
+  };
+
+  
   return(
-    <FormContext.Provider value="Placeholder">
+    <FormContext.Provider value={formData}>
       <main>
         <h1>Parent Component</h1>
 
         <section>
-          <FormInput updateFormData={setFormData}/>
-          <FormOutput formData={formData}/>
+          <FormInput />
+          <FormOutput />
         </section>
       </main>
     </FormContext.Provider>
   );
 };
 
-export const FormDataConsumer = FormContext.Consumer;
+export {
+  FormContext,
+};
 
 export default ExampleUseContext;

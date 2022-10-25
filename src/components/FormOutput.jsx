@@ -2,17 +2,17 @@
 import { useContext } from "react";
 
 // Context
-import { FormDataConsumer } from "./ExampleUseContext";
+import { FormContext } from "./ExampleUseContext";
 
 const FormOutput = () => {
-  const formData = useContext(FormDataConsumer);
+  const formData = useContext(FormContext);
 
   return(
     <main>
       <h1>Form Output</h1>
 
       <p>We want show our variable here!</p>
-      <p>{formData}</p>
+      <p>{formData.inputValue}</p>
     </main>
   );
 };
